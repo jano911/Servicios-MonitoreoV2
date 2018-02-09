@@ -74,6 +74,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IAdministracion.cs" />
+    <Compile Include="Contracts\ICablemodem.cs" />
     <Compile Include="Contracts\IModule.cs" />
     <Compile Include="Contracts\IPermiso.cs" />
     <Compile Include="Contracts\IRole.cs" />

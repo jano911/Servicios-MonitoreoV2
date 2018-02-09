@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministracionData.cs" />
+    <Compile Include="CablemodemData.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="ModuleData.cs" />
     <Compile Include="PermisoData.cs" />

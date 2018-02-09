@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministracionProvider.cs" />
     <Compile Include="BaseConf\ProviderSoftvMSS.cs" />
+    <Compile Include="CablemodemProvider.cs" />
     <Compile Include="ModuleProvider.cs" />
     <Compile Include="PermisoProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

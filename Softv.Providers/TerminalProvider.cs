@@ -181,13 +181,6 @@ namespace Softv.Providers
         }
 
 
-
-
-
-
-
-
-
     }
 
     #region Customs Methods

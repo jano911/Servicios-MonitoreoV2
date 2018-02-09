@@ -15,10 +15,11 @@ using System.Text;
 using System.Web;
 using System.Web.Script.Services;
 using System.Xml.Linq;
+
 namespace SoftvWCFService
 {
     [ScriptService]
-    public partial class SoftvWCFService : ISecutity, ISession, IUsuario, IModule, IRole, IPermiso, ITerminal, IUsuarioSystem
+    public partial class SoftvWCFService : ISecutity, ISession, IUsuario, IModule, IRole, IPermiso, ITerminal, IUsuarioSystem, IAdministracion, ICablemodem
     {
 
 
@@ -1123,6 +1124,147 @@ namespace SoftvWCFService
         }
 
         #endregion
-        
+
+        #region Administracion
+
+        public List<CMTSEntity> GetCMTSLista()
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return Administracion.GetCMTSLista();
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        public List<TipoCMTSEntity> GetTipoCMTS()
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return Administracion.GetTipoCMTS();
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+    
+        public int GetNuevoCMTS(string Nombre, string IP, string Comunidad, string ComunidadCablemodem, int IdTipo, string interfaceS, string Usuario, string PasswordS, string Enable)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return 0;
+            }
+            else
+            {
+                try
+                {
+                    return Administracion.GetNuevoCMTS(Nombre, IP, Comunidad, ComunidadCablemodem, IdTipo, interfaceS, Usuario, PasswordS, Enable);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        public CMTSEntity GetCMTSPorId(int IdCMTS)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return Administracion.GetCMTSPorId(IdCMTS);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        public int GetEditaCMTS(int IdCMTS, string Nombre, string IP, string Comunidad, string ComunidadCablemodem, int IdTipo, string interfaceS, string Usuario, string PasswordS, string Enable)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return 0;
+            }
+            else
+            {
+                try
+                {
+                    return Administracion.GetEditaCMTS(IdCMTS, Nombre, IP, Comunidad, ComunidadCablemodem, IdTipo, interfaceS, Usuario, PasswordS, Enable);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        public int GetEliminaCMTS(int IdCMTS)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return 0;
+            }
+            else
+            {
+                try
+                {
+                    return Administracion.GetEliminaCMTS(IdCMTS);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Cablemodem
+
+        public List<CablemodemEntity> GetListaCablemodem()
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return Cablemodem.GetListaCablemodem();
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        #endregion
+
     }
 }

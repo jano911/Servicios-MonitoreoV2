@@ -86,6 +86,23 @@ namespace SoftvConfiguration
             get { return (SessionElement)base["Session"]; }
         }
 
+        /// <summary>
+        /// Gets Session configuration data
+        /// </summary>
+        [ConfigurationProperty("Administracion")]
+        public AdministracionElement Administracion
+        {
+            get { return (AdministracionElement)base["Administracion"]; }
+        }
+
+        /// <summary>
+        /// Gets Session configuration data
+        /// </summary>
+        [ConfigurationProperty("Cablemodem")]
+        public CablemodemElement Cablemodem
+        {
+            get { return (CablemodemElement)base["Cablemodem"]; }
+        }
 
 
 
@@ -94,7 +111,8 @@ namespace SoftvConfiguration
 
 
 
-        
+
+
 
         /// <summary>
         /// Gets Terminal configuration data

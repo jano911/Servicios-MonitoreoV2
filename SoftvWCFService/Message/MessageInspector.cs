@@ -56,7 +56,7 @@ namespace SoftvWCFService
             WebOperationContext.Current.OutgoingResponse.Headers.Remove("Access-Control-Allow-Headers");
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Methods", "*");
-            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "Authorization,accept,content-type");
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "Authorization,Content-Type");
         }
 
 
@@ -70,6 +70,7 @@ namespace SoftvWCFService
             String Module = lstUriAction[lstUriAction.Count() - 2].ToUpper();
             if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
             {
+                WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.OK;
                 return null;
             }
             else

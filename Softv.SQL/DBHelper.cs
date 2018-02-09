@@ -125,6 +125,18 @@ namespace Softv.DAO
         }
 
         /// <summary>
+        /// Cierra el reader y la conexion para la consulta reader
+        /// </summary>
+        /// <param name="nombreProcedimiento"></param>
+        /// <returns></returns>
+        public void cierraConexion()
+        {
+            reader.Close();
+            conexion.Close();
+            conexion.Dispose();   
+        }
+
+        /// <summary>
         /// consultaReader regresa un SqlDataReader, este va como parametro para la llamada al de mapearlo al modelo
         /// </summary>
         /// <param name="nombreProcedimiento"></param>

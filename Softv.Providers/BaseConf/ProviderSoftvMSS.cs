@@ -44,6 +44,16 @@ namespace Softv.Providers
             get { return TerminalProvider.Instance; }
         }
 
+        public static AdministracionProvider Administracion
+        {
+            get { return AdministracionProvider.Instance; }
+        }
+
+        public static CablemodemProvider Cablemodem
+        {
+            get { return CablemodemProvider.Instance; }
+        }
+
 
 
 
