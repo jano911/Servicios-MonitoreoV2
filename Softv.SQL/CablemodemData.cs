@@ -15,11 +15,10 @@ namespace Softv.DAO
 {
     public class CablemodemData : CablemodemProvider
     {
-        public override List<CablemodemEntity> GetListaCablemodem()
+        public override List<CablemodemEntity> GetListaCablemodem(int IdCMTS)
         {
             List<CablemodemEntity> result = new List<CablemodemEntity>();
             string contents = File.ReadAllText(@"C:\Users\Jano\Downloads\Monitoreo\salida.txt");
-            //contents = contents.Replace(Environment.NewLine, "+");
             contents = Regex.Replace(contents, @"\r\n?|\n", "+");
             string[] lineas = contents.Split('+');
             int cont = 0;

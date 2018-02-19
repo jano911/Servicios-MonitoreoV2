@@ -47,6 +47,7 @@
     <Compile Include="AdministracionEntity.cs" />
     <Compile Include="Base\BaseEntity.cs" />
     <Compile Include="CablemodemEntity.cs" />
+    <Compile Include="CMTSEntity.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="ModuleEntity.cs" />
     <Compile Include="PermisoEntity.cs" />

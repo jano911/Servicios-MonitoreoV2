@@ -133,8 +133,17 @@ namespace SoftvConfiguration
             get { return (UsuarioSystemElement)base["UsuarioSystem"]; }
         }
 
-        
-  
+        /// <summary>
+        /// Gets UsuarioSystem configuration data
+        /// </summary>
+        [ConfigurationProperty("CMTS")]
+        public CMTSElement CMTS
+        {
+            get { return (CMTSElement)base["CMTS"]; }
+        }
+
+
+
 
     }
 }

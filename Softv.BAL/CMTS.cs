@@ -12,19 +12,19 @@ namespace Softv.BAL
 {
     [DataObject]
     [Serializable]
-    public class Cablemodem
+    public class CMTS
     {
         #region Constructors
-        public Cablemodem() { }
+        public CMTS() { }
         #endregion
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<CablemodemEntity> GetListaCablemodem(int IdCMTS)
+        public static CMTSDataEntity GetCMTSDatos(int IdCMTS)
         {
-            List<CablemodemEntity> entities = new List<CablemodemEntity>();
-            entities = ProviderSoftv.Cablemodem.GetListaCablemodem(IdCMTS);
+            CMTSDataEntity entities = new CMTSDataEntity();
+            entities = ProviderSoftv.CMTS.GetCMTSDatos(IdCMTS);
 
-            return entities ?? new List<CablemodemEntity>();
+            return entities ?? new CMTSDataEntity();
         }
     }
 }

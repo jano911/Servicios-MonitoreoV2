@@ -42,6 +42,14 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SnmpSharpNet, Version=0.9.5.0, Culture=neutral, PublicKeyToken=b2181aa3b9571feb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SnmpSharpNet.0.9.5\lib\SnmpSharpNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -55,7 +63,10 @@
   <ItemGroup>
     <Compile Include="AdministracionData.cs" />
     <Compile Include="CablemodemData.cs" />
-    <Compile Include="DBHelper.cs" />
+    <Compile Include="CMTSData.cs" />
+    <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\SNMPHelper.cs" />
+    <Compile Include="Helpers\SSHHelper.cs" />
     <Compile Include="ModuleData.cs" />
     <Compile Include="PermisoData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

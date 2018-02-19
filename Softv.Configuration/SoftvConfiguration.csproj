@@ -48,6 +48,7 @@
     <Compile Include="BaseConf\SoftvSection.cs" />
     <Compile Include="BaseConf\SoftvSettings.cs" />
     <Compile Include="CablemodemElement.cs" />
+    <Compile Include="CMTSElement.cs" />
     <Compile Include="ModuleElement.cs" />
     <Compile Include="PermisoElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

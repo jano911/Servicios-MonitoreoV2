@@ -11,10 +11,10 @@ namespace SoftvWCFService.Contracts
 {
     [AuthenticatingHeader]
     [ServiceContract]
-    public interface ICablemodem
+    public interface ICMTS
     {
         [OperationContract]
-        [WebInvoke(Method = "*", UriTemplate = "GetListaCablemodem", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
-        List<CablemodemEntity> GetListaCablemodem(int IdCMTS);
+        [WebInvoke(Method = "*", UriTemplate = "GetCMTSDatos", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        CMTSDataEntity GetCMTSDatos(int IdCMTS);
     }
 }

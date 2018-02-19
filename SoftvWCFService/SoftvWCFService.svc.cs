@@ -19,7 +19,7 @@ using System.Xml.Linq;
 namespace SoftvWCFService
 {
     [ScriptService]
-    public partial class SoftvWCFService : ISecutity, ISession, IUsuario, IModule, IRole, IPermiso, ITerminal, IUsuarioSystem, IAdministracion, ICablemodem
+    public partial class SoftvWCFService : ISecutity, ISession, IUsuario, IModule, IRole, IPermiso, ITerminal, IUsuarioSystem, IAdministracion, ICablemodem, ICMTS
     {
 
 
@@ -1245,7 +1245,7 @@ namespace SoftvWCFService
 
         #region Cablemodem
 
-        public List<CablemodemEntity> GetListaCablemodem()
+        public List<CablemodemEntity> GetListaCablemodem(int IdCMTS)
         {
             if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
             {
@@ -1255,7 +1255,30 @@ namespace SoftvWCFService
             {
                 try
                 {
-                    return Cablemodem.GetListaCablemodem();
+                    return Cablemodem.GetListaCablemodem(IdCMTS);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        #endregion
+
+        #region CMTS
+
+        public CMTSDataEntity GetCMTSDatos(int IdCMTS)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return CMTS.GetCMTSDatos(IdCMTS);
                 }
                 catch (Exception ex)
                 {

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Administracion.cs" />
     <Compile Include="Cablemodem.cs" />
+    <Compile Include="CMTS.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

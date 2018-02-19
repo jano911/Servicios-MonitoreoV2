@@ -54,6 +54,11 @@ namespace Softv.Providers
             get { return CablemodemProvider.Instance; }
         }
 
+        public static CMTSProvider CMTS
+        {
+            get { return CMTSProvider.Instance; }
+        }
+
 
 
 
