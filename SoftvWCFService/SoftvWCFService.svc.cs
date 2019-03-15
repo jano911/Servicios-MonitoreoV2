@@ -1264,6 +1264,82 @@ namespace SoftvWCFService
             }
         }
 
+        public List<ConsumoEntity> GetHistorialConsumo(string MAC)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return Cablemodem.GetHistorialConsumo(MAC);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        public ClienteEntity GetDatosCliente(string MAC)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return Cablemodem.GetDatosCliente(MAC);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        public ConsumoEntity GetConsumoActual(string MAC)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return Cablemodem.GetConsumoActual(MAC);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
+        public ClienteEntity GetIPCliente(string MAC)
+        {
+            if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    return Cablemodem.GetIPCliente(MAC);
+                }
+                catch (Exception ex)
+                {
+                    throw new WebFaultException<string>(ex.Message, HttpStatusCode.ExpectationFailed);
+                }
+            }
+        }
+
         #endregion
 
         #region CMTS

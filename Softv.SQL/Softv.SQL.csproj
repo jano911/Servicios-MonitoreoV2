@@ -65,6 +65,7 @@
     <Compile Include="CablemodemData.cs" />
     <Compile Include="CMTSData.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\MK.cs" />
     <Compile Include="Helpers\SNMPHelper.cs" />
     <Compile Include="Helpers\SSHHelper.cs" />
     <Compile Include="ModuleData.cs" />

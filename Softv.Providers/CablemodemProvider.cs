@@ -42,5 +42,13 @@ namespace Softv.Providers
 
         public abstract List<CablemodemEntity> GetListaCablemodem(int IdCMTS);
 
+        public abstract List<ConsumoEntity> GetHistorialConsumo(string MAC);
+
+        public abstract ClienteEntity GetDatosCliente(string MAC);
+
+        public abstract ConsumoEntity GetConsumoActual(string MAC);
+
+        public abstract ClienteEntity GetIPCliente(string MAC);
+
     }
 }

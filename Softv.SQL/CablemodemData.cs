@@ -10,7 +10,7 @@ using SoftvConfiguration;
 using Globals;
 using System.IO;
 using System.Text.RegularExpressions;
-
+using Softv.SQL.Helpers;
 namespace Softv.DAO
 {
     public class CablemodemData : CablemodemProvider
@@ -18,47 +18,88 @@ namespace Softv.DAO
         public override List<CablemodemEntity> GetListaCablemodem(int IdCMTS)
         {
             List<CablemodemEntity> result = new List<CablemodemEntity>();
-            string contents = File.ReadAllText(@"C:\Users\Jano\Downloads\Monitoreo\salida.txt");
-            contents = Regex.Replace(contents, @"\r\n?|\n", "+");
-            string[] lineas = contents.Split('+');
-            int cont = 0;
-            foreach(string linea in lineas)
+            try
             {
-                string[] valores = linea.Split(' ');
-                if (valores.Count() > 9)
-                {
-                    cont = 0;
-                    CablemodemEntity cablemodemAux = new CablemodemEntity();
-                    foreach (string valor in valores)
-                    {
-                        if (valor.Length > 0)
-                        {
-                            cont++;
-                            switch (cont)
-                            {
-                                case 1:
-                                    cablemodemAux.MAC = valor;
-                                    break;
-                                case 2:
-                                    cablemodemAux.IP = valor;
-                                    break;
-                                case 4:
-                                    cablemodemAux.Puerto = valor;
-                                    break;
-                                case 5:
-                                    cablemodemAux.Status = valor;
-                                    break;
-                                case 7:
-                                    cablemodemAux.RxPwr = valor;
-                                    break;
-                                case 10:
-                                    cablemodemAux.Activo = valor;
-                                    break;
-                            }
-                        }
-                    }
-                    result.Add(cablemodemAux);
-                }
+                DBHelper db = new DBHelper();
+                SqlDataReader reader = db.consultaReader("DameListadoMac");
+                result = db.MapDataToEntityCollection<CablemodemEntity>(reader).ToList();
+                reader.Close();
+                db.cierraConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error GetListaCablemodem " + ex.Message, ex);
+            }
+            return result;
+        }
+
+        public override List<ConsumoEntity> GetHistorialConsumo(string MAC)
+        {
+            List<ConsumoEntity> result = new List<ConsumoEntity>();
+            try
+            {
+                DBHelper db = new DBHelper();
+                db.agregarParametro("@mac", SqlDbType.VarChar, MAC);
+                SqlDataReader reader = db.consultaReader("DameDatosAnchoBandaHistoricos");
+                result = db.MapDataToEntityCollection<ConsumoEntity>(reader).ToList();
+                reader.Close();
+                db.cierraConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error GetHistorialConsumo " + ex.Message, ex);
+            }
+            return result;
+        }
+
+        public override ClienteEntity GetDatosCliente(string MAC)
+        {
+            ClienteEntity result = new ClienteEntity();
+            try
+            {
+                DBHelper db = new DBHelper();
+                db.agregarParametro("@mac", SqlDbType.VarChar, MAC);
+                SqlDataReader reader = db.consultaReader("DameDatosCliente");
+                result = db.MapDataToEntityCollection<ClienteEntity>(reader).FirstOrDefault();
+                reader.Close();
+                db.cierraConexion();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error GetHistorialConsumo " + ex.Message, ex);
+            }
+            return result;
+        }
+
+        public override ConsumoEntity GetConsumoActual(string MAC)
+        {
+            ConsumoEntity result = new ConsumoEntity();
+            try
+            {
+                //Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                result.Fecha = "5";// unixTimestamp.ToString();
+                Random r = new Random();
+                result.Rx = r.Next(0, 1000).ToString();
+                result.tx = r.Next(0, 1000).ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error GetConsumoActual " + ex.Message, ex);
+            }
+            return result;
+        }
+
+        public override ClienteEntity GetIPCliente(string MAC)
+        {
+            ClienteEntity result = new ClienteEntity();
+            try
+            {
+                result.IP = "132";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error GetIPCliente " + ex.Message, ex);
             }
             return result;
         }
